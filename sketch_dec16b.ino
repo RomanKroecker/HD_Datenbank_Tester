@@ -3,7 +3,7 @@
  * Autor: Roman Kröcker
  * Datum: 18.12.2017
  * 
- * Programm zum automatisieren der Anmeldung und Freischaltung bei HD-Geräten (M-Box)
+ * Programm zum automatisieren der Anmeldung und Freischaltung bei HD-Geräten 
  * 
  * Microcontroller:
  * Digispark Attiny85
@@ -79,7 +79,7 @@ void startposition(int x, int y)
 
 
 //changed_settings: 
-//Beim wechseln der Datenbanken (z.B. von Magie 117 zu Magie 138) kommt ein Fenster mit Hinweisen zu veränderten Einstellungen
+//Beim wechseln der Datenbanken (z.B. von M117 zu M138) kommt ein Fenster mit Hinweisen zu veränderten Einstellungen
 
 void changed_settings()
 {
@@ -89,7 +89,7 @@ void changed_settings()
   moveXY(127, 127);
   moveXY(127, 60);
   leftclick();
-  moveXY(0, -24); //Von -10 auf -30
+  moveXY(0, -24); 
   leftclick();
   
 }
@@ -151,7 +151,7 @@ void select_user()
   
   moveXY(max_left, max_down);
   moveXY(max_left, 0);
-  moveXY(-100, 30); //Um +5 geändert
+  moveXY(-100, 30); 
   leftclick();
   
   moveXY(0, 20); 
