@@ -27,17 +27,14 @@ void setup() //Einmalig, beim Start
 {
   //Output und Input Pins setzen
   pinMode(0, OUTPUT); //LED on Model B    
-  pinMode(1, INPUT); //LED on Model A //Spannung die der Taster durchschaltet  
-  pinMode(2, OUTPUT);  //Für den Taster 
+  pinMode(1, INPUT); //LED on Model A  //Hier für den Taster
+  pinMode(2, OUTPUT);   //Spannung die der Taster durchschaltet 
   //Pin 3 & 4 werden für die USB-Kommunikation verwendet
 
 
   //Mouse Initialisieren
   DigiMouse.begin();
 
-
-  //digitalWrite(1,HIGH); //LED on Model A //Hier für den Taster
-  //digitalWrite(0,HIGH); //LED on Model B
   digitalWrite(2,HIGH);
   
   //analogRead(2,255); //Pin 2 ist ein Analog Input. Min.: 0 bis Max.: 255
