@@ -21,12 +21,14 @@
 #define max_down 127
 #define max_up -127
 
-
+//Globale Variablen für die Freischaltung
+unsigned long ms = 0;
+bool out0 = false;
 
 void setup() //Einmalig, beim Start
 {
   //Output und Input Pins setzen
-  pinMode(0, OUTPUT); //LED on Model B    
+  pinMode(0, OUTPUT); //LED on Model B  //Freischaltung des Hop  
   pinMode(1, INPUT); //LED on Model A  //Hier für den Taster
   pinMode(2, OUTPUT);   //Spannung die der Taster durchschaltet 
   //Pin 3 & 4 werden für die USB-Kommunikation verwendet
@@ -46,6 +48,9 @@ void loop() //Dauerhaft, nach dem Start. Quasi die "Main" Funktion
 {
   DigiMouse.update();  
 
+  //Millisekunden von 0 - 8000 ms
+  ms = millis()%8000;
+  
   digitalWrite(0,LOW); //LED on Model B
 
   //Beim Tasterdruck 
@@ -59,6 +64,25 @@ void loop() //Dauerhaft, nach dem Start. Quasi die "Main" Funktion
     info();
   }
   
+  /*
+  Freischaltung H:
+  Pin0 wird nach 6 Sekunden auf High gestellt und nach 2 Sekunden wieder auf Low
+  */
+  
+  if(ms > 6000 && ms < 8000)
+  {
+    digitalWrite(0, HIGH);
+    out0 = true;
+  }
+  else if(out0)
+  {
+    digitalWrite(0, LOW);
+    ms = 0;
+  }
+  else
+  {
+    digitalWrite(0, LOW);
+  }
   
 }
 
